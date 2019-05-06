@@ -9,5 +9,139 @@
 <title>Ogilvy</title>
 </head>
 <body>
+    <div class="page_wrapper">
+        <div class="hero_section">
+          <div class="icon-ogilvy_logo hero_content"></div>
+        </div>
+    </div>
+    <div class="brand_section section_wrapper">
+        <div class="container">
+            <div class="section_title"><h2>The Brand</h2></div>
+            <ul>
+              <li>
+                <a href="#Logo">
+                  <h4>Logo</h4>
+                  <div class="icon-ogilvy_logo"></div>
+                </a>
+              </li>
+              <li>
+                <a href="#Color">
+                  <h4>Color</h4>
+                  <div>
+                    <img src="asset/images/color.svg" alt="ogilvy colors">
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#Typefaces">
+                  <h4>Typefaces</h4>
+                  <div>
+                    <img src="asset/images/alphabet.svg" alt="ogilvy typeface">
+                  </div>
+                </a>
+              </li>
+            </ul>
+        </div>
+    </div>
+    <div class="section_wrapper" id="Logo">
+        <div class="container">
+            <div class="section_title"><h2>Logo</h2></div>
+            <div class="section_content">
+              <h3>The current logo is an evolution of the promise kept by its predecessors. It bears some structural resemblance to its predecessor, Baskerville, but is otherwise a completely new typeface design with several connecting letterforms creating a logogram of the Ogilvy name.</h3>
+              <div class="section_block logo_section">
+                <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="section_wrapper" id="Color">
+        <div class="container">
+            <div class="section_title"><h2>Color</h2></div>
+            <div class="section_content">
+              <h3>Color plays a central role in Ogilvy’s brand system. It should be used pervasively, presenting Ogilvy as a lively, colorful brand. The full palette is divided into three major categories, shown on this page.</h3>
+              <div class="section_block color_section">
+                  <ul>
+                    <li></li>
+                    <li>
+                      <div class="two_pod">
+                        <div class="grey_dark"></div>
+                        <div class="grey_light"></div>
+                      </div>
+                      <div class="two_pod">
+                        <div></div>
+                        <div class="black_pod"></div>
+                      </div>
+                      <div class="three_pod">
+                        <div class="lemon_pod"></div>
+                        <div class="pink_pod"></div>
+                        <div class="blue_pod"></div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section_wrapper" id="Typefaces">
+        <div class="container">
+            <div class="section_title"><h2>Typefaces</h2></div>
+            <div class="section_content typeface_section">
+              <h3>There are two Ogilvy type families: Ogilvy Sans and Ogilvy Serif. They were designed with proportional, structural and stylistic similarities to work as a matching set. Consequently they occupy roughly the same amount of space and can be used interchangeably without harming a layout design.</h3>
+              <ul>
+                <li>
+                  <h4>Ogilvy Sans</h4>
+                  <img src="asset/images/o_sans.svg" alt="">
+                </li>
+                <li>
+                  <h4>Ogilvy Serif</h4>
+                  <img src="asset/images/o_serif.svg" alt="">
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+</script>
 </html>
